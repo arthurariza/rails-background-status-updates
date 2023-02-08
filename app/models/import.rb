@@ -7,11 +7,11 @@ class Import < ApplicationRecord
   }
 
   validates :status, inclusion: statuses.keys
-  # after_update_commit :broadcast_update
+  after_update_commit :broadcast_update
 
   private
 
   def broadcast_update
-    broadcast_replace_to 'imports', target: "import_#{id}", partial: 'imports/import'
+    broadcast_replace_to 'imports', partial: 'imports/import'
   end
 end

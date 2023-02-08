@@ -1,4 +1,4 @@
-<%= turbo_frame_tag(dom_id(import)) do %>
+<%= turbo_frame_tag(dom_id(import), class: "col-3") do %>
   <div class="card">
     <h5 class="card-header">Import <span class="badge <%= status_class(import.status) %>">#<%= import.id %></span></h5>
     <div class="card-body">
@@ -15,7 +15,7 @@
         <% end %>
 
         <% if import.status == 'error'%>
-          <a href="#" class="btn btn-danger">See Logs</a>
+          <a href="#" class="btn btn-danger">Logs</a>
         <% end %>
       </div>
     </div>

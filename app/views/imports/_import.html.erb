@@ -1,0 +1,23 @@
+<%= turbo_frame_tag(dom_id(import)) do %>
+  <div class="card">
+    <h5 class="card-header">Import <span class="badge <%= status_class(import.status) %>">#<%= import.id %></span></h5>
+    <div class="card-body">
+      <h5 class="card-title">Status:</h5>
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="card-text">
+          <%= import.status.capitalize %>
+        </p>
+
+        <% if import.status == 'processing' %>
+          <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        <% end %>
+
+        <% if import.status == 'error'%>
+          <a href="#" class="btn btn-danger">See Logs</a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
